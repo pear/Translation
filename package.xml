@@ -19,7 +19,7 @@
   </maintainers>
   <release>
     <version>1.2.6</version>
-    <date></date>
+    <date>2004-01-20</date>
     <license>PHP License</license>
     <state>stable</state>
     <notes>- Fix incorrect assignment of table definitions
@@ -33,11 +33,17 @@
       <dep type="pkg" rel="has">DB</dep>
     </deps>
     <filelist>
-      <file role="php" baseinstalldir="Translation" md5sum="85d90db5361e81814f632d370c2f047e" name="translation.class.php"/>
-      <file role="php" baseinstalldir="Translation" md5sum="18cf60f23cc1af4020842d2424557f57" name="translation.str_mgmt.php"/>
-      <file role="php" baseinstalldir="Translation" md5sum="4849697f2c489041dc079653f04c9ec2" name="translationutf8.class.php"/>
-      <file role="doc" baseinstalldir="Translation" md5sum="535c7303a3b1ff631a550f4fc5f06249" name="doc\Translation.html"/>
-      <file role="doc" baseinstalldir="Translation" md5sum="7fd5866a5f0d1d580b90c348e9947146" name="doc\Translation_strmgmt.html"/>
+      <dir name="/" baseinstalldir="Translation">
+        <file role="php" name="translation.class.php"/>
+        <file role="php" name="translation.str_mgmt.php"/>
+        <file role="php" name="translationutf8.class.php"/>
+        <dir name="docs">
+          <file role="doc" name="stylesheet.css"/>
+          <file role="doc" name="Translation.html"/>
+          <file role="doc" name="Translation_str_mgmt_php.html"/>
+          <file role="doc" name="TTranslationUTF8.html"/>
+        </dir>
+      </dir>
     </filelist>
   </release>
   <changelog>
