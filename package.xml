@@ -24,6 +24,10 @@
     <state>stable</state>
     <notes>- Fix incorrect assignment of table definitions
     - coding standards fixes
+    - In admin functions:
+      * allow custom table definitions
+      * on create, check if a table exists before creating it
+      * on delete, check if other translations share the same table before dropping it
     </notes>
     <deps>
       <dep type="pkg" rel="has">DB</dep>
