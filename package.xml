@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <package version="1.0">
   <name>Translation</name>
-  <summary>Class for creating multilingual webistes.</summary>
-  <description>Class allows to store and retrieve all the strings on multilingual site in the database. Class connects to any database using PHP PEAR extension. The object should be created for every page. While creation all the strings connected with specific page and the strings connected with all the pages on the site are loaded into variable, so access to them is quite fast and does not overload database server connection.</description>
+  <summary>Class for creating multilingual websites.</summary>
+  <description>Class allows storing and retrieving all the strings on multilingual site in a database. The class connects to any database using PEAR::DB extension. The object should be created for every page. While creation all the strings connected with specific page and the strings connected with all the pages on the site are loaded into variable, so access to them is quite fast and does not overload database server connection.</description>
   <maintainers>
     <maintainer>
       <user>Voyteck</user>
@@ -18,16 +18,14 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>1.2.6</version>
-    <date>2004-01-20</date>
+    <version>1.2.7</version>
+    <date>2004-02-28</date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>- Fix incorrect assignment of table definitions
-    - coding standards fixes
-    - In admin functions:
-      * allow custom table definitions
-      * on create, check if a table exists before creating it
-      * on delete, check if other translations share the same table before dropping it
+    <notes>- In admin functions:
+      * fixed missing quotes in queries
+      * fixed typo
+      *
     </notes>
     <deps>
       <dep type="pkg" rel="has">DB</dep>
@@ -47,6 +45,19 @@
     </filelist>
   </release>
   <changelog>
+    <release>
+      <version>1.2.6</version>
+      <date>2004-01-20</date>
+      <license>PHP License</license>
+      <state>stable</state>
+      <notes>- Fix incorrect assignment of table definitions
+- coding standards fixes
+- In admin functions:
+  * allow custom table definitions
+  * on create, check if a table exists before creating it
+  * on delete, check if other translations share the same table before dropping it
+      </notes>
+    </release>
     <release>
       <version>1.2.5</version>
       <date>2003-07-30</date>
