@@ -321,7 +321,7 @@ class Translation extends PEAR {
      */
 	function getLangName()
 	{
-		$result = $this->db->getRow('SELECT ' . $this->TableDefinitions['langsavail']['lang_name'] . ' FROM ' . $this->TableDefinitions['langsavail']['name'] . ' WHERE ' . $this->TableDefinitions['langsavail']['langid'] . " = '" . $this->LanguageID . "'");
+		$result = $this->db->getRow('SELECT ' . $this->TableDefinitions['langsavail']['lang_name'] . ' FROM ' . $this->TableDefinitions['langsavail']['name'] . ' WHERE ' . $this->TableDefinitions['langsavail']['lang_id'] . " = '" . $this->LanguageID . "'");
 		if (DB::isError($result)) {
 			return $result;
 		}
