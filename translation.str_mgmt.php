@@ -1,16 +1,16 @@
 <?php
 /**
-* Additional functions for Translation class
-*
-* Functions allowing user to create the new language, translation for specific
-* strings and full management of the languages database.
-*
-* @author Wojciech Zieliñski <voyteck@caffe.com.pl>
-* @author Lorenzo Alberton   <l dot alberton at quipo dot it>
-* @version 1.3
-* @access public
-* @package Translation
-*/
+ * Additional functions for Translation class
+ *
+ * Functions allowing user to create the new language, translation for specific
+ * strings and full management of the languages database.
+ *
+ * @author Wojciech Zieliñski <voyteck@caffe.com.pl>
+ * @author Lorenzo Alberton   <l dot alberton at quipo dot it>
+ * @version 1.3
+ * @access public
+ * @package Translation
+ */
 
 require_once 'DB.php';
 
@@ -245,7 +245,7 @@ function addTranslation($PageID, $StringID, $String, $pear_DSN, $CustomTables=0)
  * Removes string from all of string tables
  * @param string $PageID   page identifier.
  * @param string $StringID string identifier.
- * @param string $pear_DSN PEAR DSN string for database connection
+* @param string $pear_DSN PEAR DSN string for database connection
  * @param array  $CustomTables Custom table definitions
  * @return mixed Return 1 if everything went OK, a PEAR::DB_Error object if not.
  */

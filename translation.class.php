@@ -70,8 +70,8 @@ class Translation extends PEAR {
 	var $ConnectionReused;
 
     /**
-     * The string that will be displayed, if no string has been found in the DB for specified string_id
-     *
+     * The string that will be displayed, if no string has been found in the
+     * DB for specified string_id
      * @var string $ErrorText
      */
 	var $ErrorText;
@@ -115,14 +115,14 @@ class Translation extends PEAR {
     /**
      * Class constructor
      *
-     * @param string $PageName					the page identifier. It identifies
+     * @param string $PageName	the page identifier. It identifies
      * strings connected with specific page on the site
-     * @param string $LanguageID 				language id. All the languages
+     * @param string $LanguageID language id. All the languages
      * are stored on the database on specific ID's.
      * @since version 1.2.1
-     * @param string $pear_DSN					This might be 3 types: the PEAR DSN
-     * string form making the connection; the PEAR DB connection handle; the string
-     * in the format:
+     * @param string $pear_DSN	This might be 3 types: the PEAR DSN
+     * string form making the connection; the PEAR DB connection handle;
+     * the string has the following format:
      * gettext://LOCALE:LANG:BINDTXTDOMAIN:TXTDOMAINFILE:TXTDOMAIN:CFGFILE
      * for using the native PHP gettext support.
      * @param array $CustomTables				This is the array of the names of the tables and
