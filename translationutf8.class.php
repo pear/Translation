@@ -1,11 +1,17 @@
 <?
 /**
+ * File translationutf8.class.php
+ *
+ * @package Translation
+ */
+/**
  * require base class
  */
 require_once 'Translation'.DIRECTORY_SEPARATOR.'translation.class.php';
 
 /**
  * class that allows using Translation class with UTF-8 DB encoding
+ * @package Translation
  */
 class TTranslationUTF8 extends Translation
 {

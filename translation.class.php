@@ -1,24 +1,28 @@
 <?php
-
+/**
+ * File translation.class.php
+ *
+ * @package Translation
+ */
+/**
+ * require dependencies
+ */
 require_once 'PEAR.php';
 require_once 'DB.php';
 
 /**
  * Translation class
  *
- * Class allows to store and retrieve all the strings on multilingual site in the
- * database.
- * Class connects to any database using PHP PEAR extension - so it needs
+ * Class allows storing and retrieving all the strings on multilingual site
+ * in a database.
+ * The class connects to any database using PEAR::DB extension - so it needs
  * PEAR to be installed to work correctly.
  * The object should be created for every page. While creation all the strings
  * connected with specific page and the strings connected with all the pages
- * on the site are loaded into variable, so access to them is quite fast and
+ * on the site are loaded into variable, so accessing them is quite fast and
  * does not overload database server connection.
- * Reducing the DB connections by possibility to use the existing ones - the
- * constructor right now needs the PEAR DB DSN to make the connection do
- * the DB. The new version will allow user to use the existing DB connection
- * (PEAR DB connection) instead of making the new one. To do so he just needs
- * to pass to the constructor the handle for this connection instead of DSN.
+ * The class can reuse existing DB connections. To do so just pass to the
+ * constructor the handle for the connection instead of DSN.
  *
  * @author Wojciech Zieliñski <voyteck@caffe.com.pl>
  * @version 1.2.3

@@ -1,5 +1,7 @@
 <?php
 /**
+ * File translation.str_mgmt.php
+ *
  * Additional functions for Translation class
  *
  * Functions allowing user to create the new language, translation for specific
@@ -11,9 +13,10 @@
  * @access public
  * @package Translation
  */
-
+/**
+ * require PEAR::DB
+ */
 require_once 'DB.php';
-
 
 /**
  * helper method
