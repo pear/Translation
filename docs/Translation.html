@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Translation</title>
+			<link rel="stylesheet" href="stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">
+<h2 class="class-name">Class Translation</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+
+			</div>
+	<div class="info-box-body">
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Translation class</p>
+<p class="description"><p>Class allows storing and retrieving all the strings on multilingual site  in a database.  The class connects to any database using PEAR::DB extension - so it needs  PEAR to be installed to work correctly.  The object should be created for every page. While creation all the strings  connected with specific page and the strings connected with all the pages  on the site are loaded into variable, so accessing them is quite fast and  does not overload database server connection.  The class can reuse existing DB connections. To do so just pass to the  constructor the handle for the connection instead of DSN.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">version:</span> 1.2.3</li>
+				<li><span class="field">author:</span> Wojciech Zieliñski &lt;<a href="mailto:voyteck@caffe.com.pl">mailto:voyteck@caffe.com.pl</a>&gt;</li>
+			</ul>
+
+
+		<pre>PEAR
+   |
+   --Translation</pre>
+
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+
+					</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Translation/TTranslationUTF8.html">TTranslationUTF8</a></td>
+					<td>
+											class that allows using Translation class with UTF-8 DB encoding
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							|
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$ConnectionReused" title="details" class="var-name">$ConnectionReused</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">object DB</span>
+					<a href="#$db" title="details" class="var-name">$db</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$ErrorText" title="details" class="var-name">$ErrorText</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$LanguageID" title="details" class="var-name">$LanguageID</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$PageName" title="details" class="var-name">$PageName</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$Strings" title="details" class="var-name">$Strings</a>
+				</div>
+								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$TableDefinitions" title="details" class="var-name">$TableDefinitions</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">
+			<div class="method-summary">
+
+				<div class="method-definition">
+											<span class="method-result">Translation</span>
+										<a href="#Translation" title="details" class="method-name">Translation</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$PageName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$LanguageID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$pear_DSN</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$CustomTables</span>)
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_Translation" title="details" class="method-name">_Translation</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getLangName" title="details" class="method-name">getLangName</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getMetaTags" title="details" class="method-name">getMetaTags</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getOtherLangs" title="details" class="method-name">getOtherLangs</a>
+										()
+									</div>
+
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#gstr" title="details" class="method-name">gstr</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$StringName</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$Params</span> = <span class="var-default">array()</span>])
+									</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+
+
+							|
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+
+					</div>
+		<div class="info-box-body">
+			<a name="var$ConnectionReused" id="$ConnectionReused"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$ConnectionReused</span>
+						(line <span class="line-number">74</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Is true if the connection was reused, not made from the class</p>
+
+
+
+
+
+</div>
+<a name="var$db" id="$db"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">object DB</span>
+			<span class="var-name">$db</span>
+						(line <span class="line-number">67</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Connection to database</p>
+
+
+
+
+
+</div>
+<a name="var$ErrorText" id="$ErrorText"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$ErrorText</span>
+						(line <span class="line-number">81</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The string that will be displayed, if no string has been found in the</p>
+<p class="description"><p>DB for specified string_id</p></p>
+
+
+
+
+
+</div>
+<a name="var$LanguageID" id="$LanguageID"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$LanguageID</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number">60</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Language identifier</p>
+
+
+
+
+
+</div>
+<a name="var$PageName" id="$PageName"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$PageName</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number">53</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Page identifier</p>
+
+
+
+
+
+</div>
+<a name="var$Strings" id="$Strings"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$Strings</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">46</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Strings of the given page array</p>
+<p class="description"><p>This one is for fast access to cached strings for specified page</p></p>
+	<ul class="tags">
+				<li><span class="field">var:</span> string $Strings</li>
+			</ul>
+
+
+
+
+
+</div>
+<a name="var$TableDefinitions" id="$TableDefinitions"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$TableDefinitions</span>
+						(line <span class="line-number">117</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The array with table and column names</p>
+<p class="description"><p>The table may have following items:</p><p>'langsavail' - table, in which all the information of the possible languages  is kept. This array item may be the string - then the structure of the table  remains as original, but the name is specified here; or the array with the  following items:  'name' - the name of the table - default is 'tr_langsavail'  'lang_id' - the column that stores the language identifier - default  is 'lang_id'  'lang_name' - the column that stores the language name - default  is 'name'  'metatags' - the column that stores meta tags for the pages in specified  language - default is 'metatags'  'errortext' - the column that stores the text that will be displayed in case  if some text will not be found in the DB - default is 'errortext'</p><p>'strings_XX' - table, in which the strings of language &quot;XX&quot; (the  corresponding lang_id) are kept. This array item may be the string - then  the structure of the table remains as original, but the name is specified  here; or the array with the following items:  'name' - the name of the table - default is 'tr_strings_XX'  'page_id' - the page identifier - default is 'page_id'.  'string_id' - the string indetifier - default is 'string_id'.  'string' - the string itself - default is 'string'.</p><p>This parameter in fact has impact only if the DB is used as the strings  repository. The defaults are set in the way that the method is compatible  with lower versions.</p></p>
+
+
+
+
+
+</div>
+
+		</div>
+	</div>
+
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodTranslation" id="Translation"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">Constructor Translation</span> (line <span class="line-number">135</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class constructor</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> version 1.2.1</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">Translation</span>
+		<span class="method-name">
+			Translation
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$PageName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$LanguageID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$pear_DSN</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$CustomTables</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$PageName</span><span class="var-description">: the page identifier. It identifies  strings connected with specific page on the site</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$LanguageID</span><span class="var-description">: language id. All the languages  are stored on the database on specific ID's.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pear_DSN</span><span class="var-description">: This might be 3 types: the PEAR DSN  string form making the connection; the PEAR DB connection handle;  the string has the following format:  gettext://LOCALE:LANG:BINDTXTDOMAIN:TXTDOMAINFILE:TXTDOMAIN:CFGFILE  for using the native PHP gettext support.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$CustomTables</span><span class="var-description">: This is the array of the names of the tables and  optionally the names of columns. It contains the following elements:</span>			</li>
+				</ul>
+
+
+	</div>
+<a name="method_Translation" id="_Translation"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">Destructor _Translation</span> (line <span class="line-number">204</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class destructor</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> version 1.2.1</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_Translation
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetLangName" id="getLangName"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">getLangName</span> (line <span class="line-number">326</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Active language name retrieval</p>
+<p class="description"><p>Retrieves the name of active language</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> current active language name or PEAR_ERROR object in case of problems</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getLangName
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetMetaTags" id="getMetaTags"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">getMetaTags</span> (line <span class="line-number">363</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">META tags retrieval</p>
+<p class="description"><p>Retrievs the META tags that should be added on the top of translated page, so the translated characters will be correctly displayed on client's browser.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> with configured in DB META tags for selected language. In case of DB error - returns PEAR_ERROR object.</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getMetaTags
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgetOtherLangs" id="getOtherLangs"><!-- --></a>
+<div class="oddrow">
+
+	<div class="method-header">
+		<span class="method-title">getOtherLangs</span> (line <span class="line-number">342</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Other languages retrieval</p>
+<p class="description"><p>Retrieves names of all other languages, not the active.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> 2-dimensional array (0..)('id', 'name') for all the languages defined in DB but the current selected one. In case of DB error - returns PEAR_ERROR object.</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getOtherLangs
+		</span>
+				()
+			</div>
+
+
+
+	</div>
+<a name="methodgstr" id="gstr"><!-- --></a>
+<div class="evenrow">
+
+	<div class="method-header">
+		<span class="method-title">gstr</span> (line <span class="line-number">259</span>)
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Translated string retrieval</p>
+<p class="description"><p>Retrieves the string basing on string identifier (string_id) or by  page_id.string_id. It means the strings_id may be specified in 2 ways: <ul><li>as normal string_id - then the string is retrieved from the cached version</li></ul> of strings in the current page_id <ul><li>as [page_id].[string_id] - then teh strings is retrieved from the DB by getting</li></ul> it from the given page_id. The additional optimization mechanism checks  if the page_id is not the same, as the current - if it is - the string will still be  retrieved from the cached version.  Also in the Params array there can be the item 'lang_id'. If not 'action' has  been given then the string from specified lang_id (in specified language)  will be retrieved. This solution is not recommended for common usage  (e.g. for the whole pages) as this will not use the cached in the constructor  strings, but will make another query to the DB for the specified query.  Another item that can be this array is 'action'. This specified special  actions that should be performed. The special actions can be the following:  'normal' - this is default setting. It means that method will act as if this  item was not given.  'translate' - this will couse, that the $StringName will not be the  string_id, but the string itself. This must be set only together with  'lang_id' item. Method will try to find the specified string in the foreign  (specified in lang_id) language and will retrieve the corresponding string in  the current language. This solution is not recommended for common usage  (e.g. for the whole pages) as this will not use the cached in the constructor  strings, but will make another query to the DB for the specified query.  Item 'optimization' is used to specify the optimization of the queries -  if the main load should be performed by the PHP server (by doing more, but  less complicated queries) or DB server (PHP is sending only one, but  complicated query). This one is used only together with specified 'lang_id'  and 'action'=&gt;'translate' - as this performs more operations, then other  queries. It can have following values:  'php' - the default setting, cousing PHP to make 2 (or 3 if the string will  be found in some other page_id then the current) uncomplicated queries. This  is recommened if the DB server is the same machine as the PHP server.  'db' - this couses PHP to make only 1, but comlicated query. This is  recommended if the DB server is separate machine, then PHP server. WARNING:  This will not work with MySQL DB server and Db servers, that does not  supports nested SELECTs (SELECT ... FROM ... WHERE sth = (SELECT...))  Another parameters that might be specified in the $Params array are:  'ParameterPrefix' - is the prefix string for parameter - default is '&amp;&amp;'  'ParameterPostfix' - is the postfix string for parameter - default is '&amp;&amp;'</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> retrieved string</li>
+			</ul>
+
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			gstr
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$StringName</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$Params</span> = <span class="var-default">array()</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$StringName</span><span class="var-description">: string identifier - unique for the page as well as for the strings, that are available on all the pages.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$Params</span><span class="var-description">: string $Params    string may be parametrized - and the paraters, that will be &quot;inserted&quot; into string may be typen into this array. It means, that &amp;&amp;1&amp;&amp; string will be replaced by 1st array element; string &amp;&amp;2&amp;&amp; will be replaced by 2nd array element; string &amp;&amp;3&amp;&amp; will be replaced by 3rd array element etc.</span>			</li>
+				</ul>
+
+
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../Translation/TTranslationUTF8.html#methodgstr">TTranslationUTF8::gstr()</a>
+							</li>
+				</ul>
+	</div>
+
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 20 Jan 2004 22:54:55 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.2.3</a>
+	</p>
+	</div></body>
+</html>
