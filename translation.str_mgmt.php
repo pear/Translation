@@ -90,11 +90,11 @@ function createNewLang($LangID, $LangName, $METATags, $pear_DSN, $CustomTables=0
 	if (DB::isError($db)) {
 		return $db;
 	}
-	$query = sprintf('INSERT INTO %s (%s, %s, %s) VALUES (%s, %s, %s)',
+	$query = sprintf('INSERT INTO %s (%s, %s, %s) VALUES ("%s", "%s", "%s")',
 	                $TableDefinitions['langsavail']['name'],
 	                $TableDefinitions['langsavail']['lang_id'],
 	                $TableDefinitions['langsavail']['lang_name'],
-	                $TableDefinitions['langsavail']['lang_metatags'],
+	                $TableDefinitions['langsavail']['metatags'],
 	                addslashes($LangID),
 	                addslashes($LangName),
 	                addslashes($METATags)
@@ -125,7 +125,7 @@ function createNewLang($LangID, $LangName, $METATags, $pear_DSN, $CustomTables=0
     			                       .$TableDefinitions['strings_'.$LangID]['string_id'].'))';
         $result = $db->query($query);
     	if (DB::isError($result)) {
-    		$query = sprintf('DELETE FROM %s WHERE %s=%s',
+    		$query = sprintf('DELETE FROM %s WHERE %s="%s"',
                             $TableDefinitions['langsavail']['name'],
 	                        $TableDefinitions['langsavail']['lang_id'],
 	                        addslashes($LangID)
@@ -182,7 +182,7 @@ function removeLang($LangID, $pear_DSN, $CustomTables=0, $force=false)
 	if (DB::isError($result)) {
 		return $result;
 	}
-	$query = sprintf('DELETE FROM %s WHERE %s=%s',
+	$query = sprintf('DELETE FROM %s WHERE %s="%s"',
 	                $TableDefinitions['langsavail']['name'],
 	                $TableDefinitions['langsavail']['lang_id'],
 	                $LangID);
@@ -228,7 +228,7 @@ function addTranslation($PageID, $StringID, $String, $pear_DSN, $CustomTables=0)
 	foreach ($String as $LangID => $Text) {
 		$data[] = array($TableDefinitions['strings_'.$LangID]['name'], $Text);
 	}
-	$query = sprintf('INSERT INTO ! (%s, %s, %s) VALUES (%s, %s, ?)',
+	$query = sprintf('INSERT INTO ! (%s, %s, %s) VALUES ("%s", "%s", ?)',
 	                $TableDefinitions['strings_'.$LangID]['page_id'],
     			    $TableDefinitions['strings_'.$LangID]['string_id'],
    			        $TableDefinitions['strings_'.$LangID]['string'],
@@ -273,7 +273,7 @@ function removeTranslation($PageID, $StringID, $pear_DSN, $CustomTables=0)
 	        $TableDefinitions,
 	        setDefaultTableDefinitions($LangID, $CustomTables)
         );
-        $query = sprintf('DELETE FROM %s WHERE %s=%s AND %s=%s',
+        $query = sprintf('DELETE FROM %s WHERE %s="%s" AND %s="%s"',
                         $TableDefinitions['strings_'.$LangID]['name'],
                         $TableDefinitions['strings_'.$LangID]['page_id'],
                         addslashes($PageID),
