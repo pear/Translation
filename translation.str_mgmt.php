@@ -18,7 +18,7 @@ require_once 'DB.php';
 /**
  * helper method
  */
-function setDefaultTableDefinitions($LangID, $LangName, $CustomTables)
+function setDefaultTableDefinitions($LangID, $CustomTables)
 {
     //set defaults
 	$TableDefinitions = array(
@@ -36,7 +36,7 @@ function setDefaultTableDefinitions($LangID, $LangName, $CustomTables)
             'string'    => 'string'
         )
     );
-	if (is_array($CustomTables['langsavail'])) {
+    if (is_array($CustomTables['langsavail'])) {
 	    $TableDefinitions['langsavail']['name']      = isset($CustomTables['langsavail']['name'])      ? $CustomTables['langsavail']['name']      : 'tr_langsavail';
 		$TableDefinitions['langsavail']['lang_id']   = isset($CustomTables['langsavail']['lang_id'])   ? $CustomTables['langsavail']['lang_id']   : 'lang_id';
 		$TableDefinitions['langsavail']['lang_name'] = isset($CustomTables['langsavail']['lang_name']) ? $CustomTables['langsavail']['lang_name'] : 'lang_name';
@@ -81,7 +81,7 @@ function setDefaultTableDefinitions($LangID, $LangName, $CustomTables)
  */
 function createNewLang($LangID, $LangName, $METATags, $pear_DSN, $CustomTables=0)
 {
-	$TableDefinitions = setDefaultTableDefinitions($LangID, $LangName, $CustomTables);
+	$TableDefinitions = setDefaultTableDefinitions($LangID, $CustomTables);
 
 	$db = DB::connect($pear_DSN);
 	if (DB::isError($db)) {
@@ -155,7 +155,7 @@ function removeLang($LangID, $pear_DSN, $CustomTables=0, $force=false)
 		return $db;
 	}
 
-	$TableDefinitions = setDefaultTableDefinitions($LangID, $LangName, $CustomTables);
+	$TableDefinitions = setDefaultTableDefinitions($LangID, $CustomTables);
 
 	if (!$force) {
     	//check if other langs are stored in this table
@@ -204,18 +204,35 @@ function removeLang($LangID, $pear_DSN, $CustomTables=0, $force=false)
  *                         the values - the sttrings in these languages - e.g.:
  *                         ("en"->"English text", "pl"->"Tekst polski", ...)
  * @param string $pear_DSN PEAR DSN string for database connection
+ * @param array  $CustomTables Custom table definitions
  * @return mixed Return 1 if everything went OK, a PEAR::DB_Error object if not.
  */
-function addTranslation($PageID, $StringID, $String, $pear_DSN)
+function addTranslation($PageID, $StringID, $String, $pear_DSN, $CustomTables=0)
 {
 	$db = DB::connect($pear_DSN);
 	if (DB::isError($db)) {
 		return $db;
 	}
+    $TableDefinitions = array();
+    $langs = array_keys($String);
+    foreach ($langs as $aLang) {
+	    $TableDefinitions = array_merge_recursive(
+	        $TableDefinitions,
+	        setDefaultTableDefinitions($aLang, $CustomTables)
+        );
+    }
+
 	foreach ($String as $LangID => $Text) {
-		$data[] = array("tr_strings_$LangID", $Text);
+		$data[] = array($TableDefinitions['strings_'.$LangID]['name'], $Text);
 	}
-	$result = $db->executeMultiple(($db->prepare("INSERT INTO ! (page_id, string_id, string) VALUES ('$PageID', '$StringID', ?)")), $data);
+	$query = sprintf('INSERT INTO ! (%s, %s, %s) VALUES (%s, %s, ?)',
+	                $TableDefinitions['strings_'.$LangID]['page_id'],
+    			    $TableDefinitions['strings_'.$LangID]['string_id'],
+   			        $TableDefinitions['strings_'.$LangID]['string'],
+   			        addslashes($PageID),
+   			        addslashes($StringID)
+             );
+	$result = $db->executeMultiple(($db->prepare($query)), $data);
 	if (DB::isError($result)) {
 		return $result;
 	}
@@ -226,25 +243,45 @@ function addTranslation($PageID, $StringID, $String, $pear_DSN)
  * Translation removal
  *
  * Removes string from all of string tables
- * @param string $PageID		page identifier.
- * @param string $StringID		string identifier.
- * @param string $pear_DSN	PEAR DSN string for database connection
- * @return integer $result			1 if everything went OK or PEAR DB_Error object if something goes wrong
+ * @param string $PageID   page identifier.
+ * @param string $StringID string identifier.
+ * @param string $pear_DSN PEAR DSN string for database connection
+ * @param array  $CustomTables Custom table definitions
+ * @return mixed Return 1 if everything went OK, a PEAR::DB_Error object if not.
  */
-function removeTranslation($PageID, $StringID, $pear_DSN) {
+function removeTranslation($PageID, $StringID, $pear_DSN, $CustomTables=0)
+{
 	$db = DB::connect($pear_DSN);
-	if (DB::isError($db))
+	if (DB::isError($db)) {
 		return $db;
-	$result = $db->query("SELECT lang_id FROM tr_langsavail");
-	if (DB::isError($result))
-		return $result;
-	while ($row = $result->fetchRow())
-		$languages[] = "tr_strings_" . $row[0];
-	//print_r($languages);
-	$result = $db->executeMultiple(($db->prepare("DELETE FROM ! WHERE page_id = '$PageID' and string_id = '$StringID'")), $languages);
-	if (DB::isError($result))
-		return $result;
-	return $result;
-}
+	}
 
+	$result = $db->query('SELECT '. $TableDefinitions['langsavail']['lang_id']
+	                     .' FROM '. $TableDefinitions['langsavail']['name']);
+	if (DB::isError($result)) {
+		return $result;
+	}
+	while ($row = $result->fetchRow()) {
+		$languages[] = $row[0];
+	}
+	$TableDefinitions = array();
+	foreach ($langs as $LangID) {
+	    $TableDefinitions = array_merge_recursive(
+	        $TableDefinitions,
+	        setDefaultTableDefinitions($LangID, $CustomTables)
+        );
+        $query = sprintf('DELETE FROM %s WHERE %s=%s AND %s=%s',
+                        $TableDefinitions['strings_'.$LangID]['name'],
+                        $TableDefinitions['strings_'.$LangID]['page_id'],
+                        addslashes($PageID),
+                        $TableDefinitions['strings_'.$LangID]['string_id'],
+                        addslashes($StringID)
+                 );
+        $result = $db->query($query);
+        if (DB::isError($result)) {
+            return $result;
+        }
+	}
+	return 1;
+}
 ?>
