@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * File translationutf8.class.php
  *
