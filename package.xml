@@ -10,15 +10,21 @@
       <email>voyteck@caffe.com.pl</email>
       <role>lead</role>
     </maintainer>
+    <maintainer>
+      <user>quipo</user>
+      <name>Lorenzo Alberton</name>
+      <email>l.alberton@quipo.it</email>
+      <role>lead</role>
+    </maintainer>
   </maintainers>
   <release>
-    <version>1.2.5</version>
-    <date>2003-07-30</date>
+    <version>1.2.6</version>
+    <date></date>
     <license>PHP License</license>
     <state>stable</state>
-    <notes>The version 1.2.5 is new feature:
-- the new $Params parameters added allowing to control the parameter in the stroing prefix and postfix: ParameterPrefix and ParameterPostfix
-- added support class that allows to retrieve the UTF8 strings - TranslationUTF8</notes>
+    <notes>- Fix incorrect assignment of table definitions
+    - coding standards fixes
+    </notes>
     <deps>
       <dep type="pkg" rel="has">DB</dep>
     </deps>
@@ -32,12 +38,21 @@
   </release>
   <changelog>
     <release>
+      <version>1.2.5</version>
+      <date>2003-07-30</date>
+      <state>stable</state>
+      <notes>The version 1.2.5 has new features:
+- the new $Params parameters added allowing to control the parameter in the string prefix and postfix: ParameterPrefix and ParameterPostfix
+- added support class that allows to retrieve the UTF8 strings - TranslationUTF8
+      </notes>
+    </release>
+    <release>
       <version>1.2.4</version>
       <date>2003-07-17</date>
       <state>stable</state>
       <notes>The version 1.2.4 is bugfix:
 - when trying to use the custom table or column name for avalable languages - the class did not used the specified variables
-</notes>
+      </notes>
     </release>
     <release>
       <version>1.2.3</version>
