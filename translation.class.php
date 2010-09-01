@@ -274,7 +274,7 @@ class Translation extends PEAR
         if (($returnstring = $this->Strings[$StringName]) == '') {
             $returnstring = $this->ErrorText;
         }
-        if (($eregged = ereg("([_a-zA-Z]*)\.([_a-zA-Z]*)", $StringName, $regs)) && $Params['action'] != 'translate') {
+        if (($eregged = preg_match("/([_a-zA-Z]*)\.([_a-zA-Z]*)/", $StringName, $regs)) && $Params['action'] != 'translate') {
             if ($reg[2] == $this->PageName) {
                 if (($returnstring = $this->Strings[$StringName]) == '') {
                     $returnstring = $this->ErrorText;
