@@ -1,0 +1,25 @@
+{
+    "authors": [
+        {
+            "email": "voyteck@caffe.com.pl",
+            "name": "Wojciech Zieli&ntilde;ski",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "description": "More info available on: http://pear.php.net/package/Translation",
+    "license": "PHP License",
+    "name": "pear/translation",
+    "support": {
+        "issues": "http:///bugs/search.php?cmd=display&package_name[]=Translation",
+        "source": "https://github.com/pear/Translation"
+    },
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
